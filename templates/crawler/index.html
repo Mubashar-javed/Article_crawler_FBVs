@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Home
+{% endblock title %}
+
+
+{% block body %}
+<div class="jumbotron">
+    <h3>Search any type of Article or Research Here!</h3><br>
+
+    <a href="{% url 'crawler:search' %}" class="btn btn-success">Search for
+        article</a>
+</div>
+<div class="container">
+    <div class="jumbotron">
+
+        <h3>Instructions:</h3>
+        <ol>
+            <li>You must have an account to download any type of article.</li>
+            <li>You can search any topic you want.</li>
+            <li>If you don't find your required article/Research-paper Enter
+                the Exact title.</li>
+            <li>We are only showing the Top 50 recently published articles
+                Here.</li>
+            <li>All article showing here are published recently.</li>
+            <li>Name are case-insensitive.</li>
+        </ol>
+    </div>
+</div>
+
+{% endblock body %}

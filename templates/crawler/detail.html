@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Detail Page
+{% endblock title %}
+
+{% block body %}
+
+
+
+<div class="jumbotron" style="text-align: justify;">
+
+    <h3>{{articles.title}}</h3>
+    <hr>
+
+    <small class="mute">{{articles.author}}</small><br>
+    <small class="mute">{{articles.date}}</small><br>
+    <hr>
+    <p style="text-align: justify;">{{articles.abstract}}</p>
+
+
+
+    <a class="btn btn-outline-primary" href="{{articles.pdf_link}}">
+        <i id="icon" class="fa fa-download fa-6" aria-hidden="true">&nbsp;
+        </i>Download Pdf
+    </a>
+
+
+</div>
+
+{% endblock body %}

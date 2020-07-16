@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load tz %}
+
+{% block title %}Search Page{% endblock title %}
+<link rel="shortcut icon" href="https://www.flaticon.com/authors/freepik"
+    type="image/x-icon">
+
+{% block body %}
+
+<div class="jumbotron">
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <h2 id="welcome">Welcome to the world of Articles!</h2>
+    </div>
+    <div class="mb-4"></div>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{forms|crispy}}
+
+
+        {% if messages %}
+
+        {% for message in messages %}
+        <div class="alert alert-danger">{{ message }}</div>
+
+        {% endfor %}
+        {% endif %}
+
+
+
+        <input type="submit" class="btn btn-success form-control "
+            value="Search">
+    </form>
+</div>
+
+{% for article in articles %}
+<li class="list-group-item">
+    <a class="link" href="{% url 'crawler:detail' article.id %}">
+        <h4>{{article.title}}</h4>
+    </a>
+
+
+</li>
+{% endfor %}
+
+
+{% endblock body %}

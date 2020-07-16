@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+{% block title %} Log In {% endblock title %}
+
+{% block body %}
+
+
+<div class="jumbotron">
+    {% if messages %}
+
+    {% for message in messages %}
+    <div class="alert alert-success">{{ message }}</div>
+
+    {% endfor %}
+    {% endif %}
+
+    <form method="POST"  class="form-group">
+        {% csrf_token %}
+        <fieldset class="form-group mb-5">{{form|crispy }}</fieldset>
+        <fieldset class="mb-5">
+
+            <input class="btn btn-outline-primary form-group form-control" type="submit" name="submit" value="LOGIN">
+        </fieldset>
+    </form>
+
+    <small class="text-muted">Don't have an account <a class="ml-2" href="{% url 'user:register' %}">Register</a> here.
+    </small>
+</div>
+{% endblock body %}

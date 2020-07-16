@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Log Out {% endblock title %}
+
+{% block body %}
+<div class="jumbotron">
+<h2>User has been logged out successfully!</h2>
+<hr>
+
+<small class="text-muted"> <a class="mb-4 ml-4" href="{% url 'crawler:index' %}">Click Here </a>to go back to home page.
+</small> <br>
+<small class="text-muted"> <a class="ml-4 mb-4" href="{% url 'user:login' %}">Login </a>with another account!
+</small>
+</div>
+{% endblock body %}
